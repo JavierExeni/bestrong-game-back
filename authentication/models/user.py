@@ -16,4 +16,4 @@ class User(AbstractUser):
     genero = models.PositiveSmallIntegerField(choices=TIPOS_GENEROS, default=1)
     puntos = models.IntegerField(default=0)
     # Llaves foraneas
-    bodyinfo = models.OneToOneField(BodyInfo, on_delete=models.CASCADE, related_name="user_bodyInfo")
+    bodyinfo = models.OneToOneField(BodyInfo, on_delete=models.CASCADE, related_name="user_bodyInfo", null=True)
