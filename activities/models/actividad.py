@@ -1,7 +1,6 @@
+from activities.models import Leccion
 from base.models import TimeStampedModel
 from django.db import models
-
-from levels.models import Nivel
 
 
 class Actividad(TimeStampedModel):
@@ -18,4 +17,4 @@ class Actividad(TimeStampedModel):
     pregunta = models.CharField(max_length=500, null=True)
     tipo_actividad = models.PositiveSmallIntegerField(choices=TIPOS_ACTIVIDAD, default=1)
     # Foranea
-    nivel = models.ForeignKey(Nivel, on_delete=models.CASCADE, related_name="actividad_nivel")
+    leccion = models.ForeignKey(Leccion, on_delete=models.CASCADE, related_name="actividad_leccion")

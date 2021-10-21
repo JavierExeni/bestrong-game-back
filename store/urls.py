@@ -2,11 +2,10 @@ from django.conf.urls import url
 from django.urls import include
 from rest_framework import routers
 
-from workout.api import EjercicioViewset, RutinaViewset
+from store.api import ProductoViewset
 
 router = routers.DefaultRouter()
-router.register(r'ejercicio', EjercicioViewset)
-router.register(r'rutina', RutinaViewset)
+router.register(r'producto', ProductoViewset)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
