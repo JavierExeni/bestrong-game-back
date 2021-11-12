@@ -14,7 +14,8 @@ class Actividad(TimeStampedModel):
         (ACTIVIDAD_RELACION_IAMGEN, 'Relacionamiento de imagenes'),
     )
 
-    pregunta = models.CharField(max_length=500, null=True)
-    tipo_actividad = models.PositiveSmallIntegerField(choices=TIPOS_ACTIVIDAD, default=1)
+    pregunta = models.CharField(max_length=800)
+    puntos = models.IntegerField(default=50)
+    tipo_actividad = models.PositiveSmallIntegerField(choices=TIPOS_ACTIVIDAD)
     # Foranea
     leccion = models.ForeignKey(Leccion, on_delete=models.CASCADE, related_name="actividad_leccion")

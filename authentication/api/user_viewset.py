@@ -7,7 +7,7 @@ from authentication.models import User, BodyInfo
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "username", "first_name", "last_name", "email", "edad", "genero", "puntos", "bodyinfo"]
+        fields = ["id", "username", "first_name", "last_name", "email", "edad", "genero", "puntos", "bodyinfo", "nivel"]
 
 
 class UserRegisterSerializer(serializers.Serializer):

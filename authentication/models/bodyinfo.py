@@ -21,8 +21,8 @@ class BodyInfo(TimeStampedModel):
         (RESISTENCIA, 'Resistencia'),
     )
 
-    altura = models.IntegerField(default=0)
-    peso = models.IntegerField(default=0)
-    calorias = models.IntegerField(default=0)
-    body_type = models.PositiveSmallIntegerField(choices=TIPOS_CUERPOS, default=0)
-    objetivo = models.PositiveSmallIntegerField(choices=TIPO_OBJETIVO, default=0)
+    altura = models.IntegerField()
+    peso = models.IntegerField()
+    calorias = models.FloatField()
+    body_type = models.PositiveSmallIntegerField(choices=TIPOS_CUERPOS)
+    objetivo = models.PositiveSmallIntegerField(choices=TIPO_OBJETIVO)

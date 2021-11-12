@@ -9,8 +9,8 @@ class Producto(models.Model):
         (TRUCO, 'Truco'),
     )
 
-    nombre = models.CharField(max_length=500, null=True)
-    description = models.CharField(max_length=500, null=True)
-    tipo_producto = models.PositiveSmallIntegerField(choices=TIPOS_PRODUCTOS, default=1)
-    path_video = models.CharField(max_length=500, null=True)
-    precio_pts = models.IntegerField(default=0)
+    nombre = models.CharField(max_length=500)
+    description = models.TextField()
+    tipo_producto = models.PositiveSmallIntegerField(choices=TIPOS_PRODUCTOS)
+    path_video = models.CharField(max_length=800,)
+    precio_pts = models.IntegerField()

@@ -3,4 +3,4 @@ from django.db import models
 
 
 class Rutina(TimeStampedModel):
-    nombre = models.CharField(max_length=200, null=True)
+    nombre = models.CharField(max_length=200)

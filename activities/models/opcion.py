@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Opcion(TimeStampedModel):
-    opcion = models.CharField(max_length=500, null=True)
-    op_correcta = models.CharField(max_length=500, null=True)
+    opcion = models.CharField(max_length=800)
+    op_correcta = models.BooleanField()
     # Foraneas
     actividad = models.ForeignKey(Actividad, on_delete=models.CASCADE, related_name="opcion_actividad")
