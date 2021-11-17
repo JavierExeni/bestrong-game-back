@@ -2,7 +2,7 @@ from rest_framework import serializers, viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from authentication.api import BodyInfoSerializer
+from authentication.api import BodyInfoSerializer, LogroSerializer
 from authentication.models import User
 from store.api import ProductoSerializer
 from workout.api import RutinaSerializer
@@ -13,17 +13,18 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["id", "username", "password", "first_name", "last_name", "email", "edad", "genero", "puntos",
-                  "bodyinfo", "producto"]
+                  "bodyinfo", "producto", "logro"]
 
 
 class UserResponseSerializer(serializers.ModelSerializer):
     bodyinfo = BodyInfoSerializer(many=False, read_only=True)
     producto = ProductoSerializer(many=True, read_only=True)
+    logro = LogroSerializer(many=True, read_only=True)
 
     class Meta:
         model = User
         fields = ["id", "username", "first_name", "last_name", "email", "edad", "genero", "puntos", "bodyinfo",
-                  "producto"]
+                  "producto", "logro"]
 
 
 class UserRegisterSerializer(serializers.Serializer):
