@@ -24,3 +24,15 @@ class RutinaViewset(viewsets.ModelViewSet):
             return Response(serializer.data)
         else:
             return Response("No se encontraron según leccion")
+
+    @action(detail=False, methods=['post'], url_path="update-rutina",
+            name="Update rutina sacando user")
+    def update_rutina_user(self, request):
+        if request.data['rutina'] and request.data['user'] and request.data['nivel']:
+            Rutina.objects.filter(id=request.data['rutina']).first().user.remove(request.data['user'])
+            Rutina.objects.filter(nivel_id=int(request.data['nivel']+1)).first().user.add(request.data['user'])
+            queryset = Rutina.objects.filter(nivel_id=int(request.data['nivel']+1)).first()
+            serializer = RutinaSerializer(queryset, many=False)
+            return Response(serializer.data)
+        else:
+            return Response("No se encontraron según rutina")

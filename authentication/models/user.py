@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from authentication.models import BodyInfo
-from levels.models import Nivel
 from store.models import Producto
 
 
@@ -19,5 +18,4 @@ class User(AbstractUser):
     puntos = models.IntegerField(default=0)
     # Llaves foraneas
     bodyinfo = models.OneToOneField(BodyInfo, on_delete=models.CASCADE, related_name="user_bodyInfo", null=True)
-    producto = models.ManyToManyField(Producto, related_name="user_producto")
-    nivel = models.ForeignKey(Nivel, on_delete=models.CASCADE, related_name="user_nivel", null=True)
+    producto = models.ManyToManyField(Producto, blank=True)

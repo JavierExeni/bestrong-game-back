@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -128,6 +128,18 @@ CORS_ORIGIN_ALLOW_ALL = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
+
+STATIC_ROOT = os.path.join(SETTINGS_PATH, 'static', 'static_root')
+
+STATICFILES_DIRS = (
+    os.path.join(SETTINGS_PATH, 'static', 'static_dirs'),
+)
+
+MEDIA_ROOT = os.path.join(SETTINGS_PATH, 'media')
+
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -12,5 +12,6 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=500)
     description = models.TextField()
     tipo_producto = models.PositiveSmallIntegerField(choices=TIPOS_PRODUCTOS)
-    path_video = models.CharField(max_length=800,)
+    path_video = models.CharField(max_length=800)
     precio_pts = models.IntegerField()
+    file = models.FileField(db_column='image_url', blank=False, null=True, upload_to='images/productos')
